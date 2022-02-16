@@ -1,0 +1,125 @@
+*{    
+    box-sizing: border-box;
+    word-break: break-word;
+    font-family: 'Roboto', sans-serif;
+    
+}
+body{
+    background-color:#ffffff;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 69px;    
+    text-align: center;
+    background: #EC362D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header > p {
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 43px;
+    color: #FFFFFF;
+}
+
+section {
+    width: 100%;
+    height: auto;  
+    background-color: rgb(61, 204, 204);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.criar-quizz {
+    
+    width: 340px;
+    height: 181px;
+    margin-top: 100px;
+    background: #ffffff;
+    border: 1px dashed #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.criar-quizz > input {
+    width: 151px;
+    height: 40px;  
+    background: #ffffff;
+    border: 1px dashed #EC362D;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+
+.placeholdercriar::placeholder{
+    
+    font-family: Roboto;  
+    font-size: 21px;
+    text-align: center;
+    color: #EC362D;
+}
+
+.criar-quizz > p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;       
+    text-align: center;
+    color: #B9B9B9;
+    margin-bottom: 20px;
+}
+
+.titulo-todos > p{
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;    
+    color: #000000;
+    margin-top: 35px;                
+}
+
+.todos-quizzes{
+   display: flex;
+   flex-wrap:wrap;
+   align-items: center;
+   justify-content: center;
+   margin-top: 70px;
+   position: relative;
+}
+    
+.dupla{
+    display: flex;
+    flex-direction: column;    
+    flex-wrap:wrap; 
+       
+}
+
+figure > img{
+    margin-right: 12px;
+    margin-bottom: 15px;
+    width: 340px;
+    height: 181px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
