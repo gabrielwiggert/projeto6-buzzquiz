@@ -17,10 +17,10 @@
     </header>
 
 <!-- tela 1 lista de quizzes    -->
-        <section class="hidden">    
+        <section class="lista-quizzes hidden">    
             <div class="container-criar">           
                 <div class="criar-quizz">
-                    <p>Voçê não criou nenhum <br> quizz ainda :(</p>
+                    <p>Voçê não criou nenhum <br> quizz ainda :&#40</p>
                     <input type="text" placeholder="Cria Quizz" class="placeholdercriar">
                 </div>
             </div>
@@ -52,7 +52,7 @@
                     </figure>
                 </div>
 
-                <div class="dupla">
+                <div class="dupla" >
                     <figure>
                         <img src="/images/Saiba-sobre-o-Drift-no-Japão.jpg" alt="">
                         <p></p>
@@ -67,6 +67,22 @@
 
         </section>  
         
+<!--Criação de quizz-->
 
+        <section class="criacao-de-quizzes">
+            <div class="titulo-criação">
+                <p>Comece pelo começo</p>
+            </div>
+            <div class="caixa-input">
+                <input type="text" placeholder="Título do seu quizz" class="titulo-criacao placeholdercriacao"/> 
+                <input type="text" placeholder="URL da imagem do seu quizz" class="url-image placeholdercriacao"/>
+                <input type="text" placeholder="Quantidade de perguntas do quizz" class="quantidade-perguntas placeholdercriacao"/>
+                <input type="text" placeholder="Quantidade de níveis do quizz" class="quantidade-niveis placeholdercriacao"/>
+            </div>
+            <div class="butao-prosseguir" >
+                <button onclick="abrirPerguntas()">Prosseguir para criar perguntas</button>
+            </div>
+        </section>
+        <script src="script.js"></script>
 </body>
 </html>
