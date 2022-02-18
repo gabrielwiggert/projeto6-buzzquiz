@@ -198,6 +198,7 @@ figure > img{
 
 .execucao-quizz {
     background-color: #E5E5E5;
+    margin-bottom: 100px;
 }
 
 .titulo {
@@ -279,4 +280,16 @@ figure > img{
 
 .opcao {
     width: auto;
+}
+
+.true h6 {
+    color: green;
+}
+
+.false h6 {
+    color: red;
+}
+
+.false {
+    opacity: 0.5;
 }
