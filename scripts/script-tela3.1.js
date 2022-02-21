@@ -74,11 +74,20 @@ function getQuizz(ID_DO_QUIZZ) {
     resposta.then(renderizarQuizz);
   }
 
+function comecarExibicao(){
+    const fechar = document.querySelector('.lista-quizzes')
+    fechar.classList.add('hidden')
+
+    const abrir = document.querySelector('.execucao-quizz')
+    abrir.classList.remove('hidden')
+}
+
 function comparador() { 
     return Math.random() - 0.5; 
 }
 
 function renderizarQuizz(resposta) {
+    comecarExibicao();
     let quizz = resposta.data;
     quizzGlobal = resposta.data;
     var div = document.querySelector(".execucao-quizz");
