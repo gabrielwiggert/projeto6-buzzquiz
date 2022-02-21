@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <header>
@@ -67,10 +68,10 @@
 
         </section>  
         
-<!--Criação de quizz-->
+<!-- criação do quizz-->
 
         <section class="criacao-de-quizzes">
-            <div class="titulo-criação">
+            <div class="titulos">
                 <p>Comece pelo começo</p>
             </div>
             <div class="caixa-input">
@@ -79,10 +80,57 @@
                 <input type="text" placeholder="Quantidade de perguntas do quizz" class="quantidade-perguntas placeholdercriacao"/>
                 <input type="text" placeholder="Quantidade de níveis do quizz" class="quantidade-niveis placeholdercriacao"/>
             </div>
-            <div class="butao-prosseguir" >
+            <div class="botao-prosseguir" >
                 <button onclick="abrirPerguntas()">Prosseguir para criar perguntas</button>
             </div>
         </section>
-        <script src="script.js"></script>
+
+<!-- perguntas do quizz -->
+        
+        <section class="perguntas hidden">
+            <div class="titulos">
+                <p>Crie suas perguntas</p>
+            </div>
+        </section>
+
+        <section class="perguntas-quizz">
+            
+           
+            <div class="botao-prosseguir-2 hidden" >
+                <button onclick="abrirNiveis()">Prosseguir para criar niveis</button>
+            </div>
+        </section>
+
+<!-- niveis do quizz -->
+                
+        <section class="niveis hidden">
+            <div class="titulos">
+                <p>Agora, decida os níveis!</p>
+            </div>        
+        </section>
+
+        <section class="niveis-quizz">
+            
+            
+            <div class="botao-prosseguir-3 hidden" >
+                <button onclick="abrirSucesso()">Finalizar Quizz</button>
+            </div>
+        </section>
+
+<!-- sucesso do quizz -->
+        <!-- <section class="succeso ">
+        </section> -->
+        
+        <section class="sucesso-quizz hidden">
+          
+        </section>
+
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/scripts/script-tela3.1.js"></script>
+        <script src="/scripts/script-tela3.2.js"></script>
+        <script src="/scripts/script-tela3.3.js"></script>
+        <script src="/scripts/script-tela3.4.js"></script>
+
 </body>
 </html>
