@@ -37,7 +37,18 @@
 
 
         <section class="criacao-de-quizzes hidden">
-         
+            <div class="titulo-criação">
+                <p>Comece pelo começo</p>
+            </div>
+            <div class="caixa-input">
+                <input type="text" placeholder="Título do seu quizz" class="titulo-criacao placeholdercriacao"/> 
+                <input type="text" placeholder="URL da imagem do seu quizz" class="url-image placeholdercriacao"/>
+                <input type="text" placeholder="Quantidade de perguntas do quizz" class="quantidade-perguntas placeholdercriacao"/>
+                <input type="text" placeholder="Quantidade de níveis do quizz" class="quantidade-niveis placeholdercriacao"/>
+            </div>
+            <div class="botao-prosseguir" >
+                <button onclick="abrirPerguntas()">Prosseguir para criar perguntas</button>
+            </div>
         </section>
 
 <!-- perguntas do quizz -->
