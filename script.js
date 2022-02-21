@@ -43,6 +43,8 @@ function abrirPerguntas(){
 /* JS tela 2 - execução de um quizz */
 
 let acertos = 0;
+let numPergunta = 0;
+let idPergunta = 0;
 
 function getQuizz(ID_DO_QUIZZ) {
     const resposta = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/" + ID_DO_QUIZZ);
@@ -59,7 +61,7 @@ function renderizarQuizz(resposta) {
     div.innerHTML = "";
 
     div.innerHTML = `
-    <div clas]s="titulo">
+    <div class="titulo">
         <p>${quizz.title}</p>
         <img src="${quizz.image}">
         <div class="mask"></div>
@@ -70,8 +72,8 @@ function renderizarQuizz(resposta) {
 
         question.answers.sort(comparador); // Após esta linha, a question.answers estará embaralhada
 
-        div.innerHTML = `
-            <div class="pergunta">
+        div.innerHTML += `
+            <div class="pergunta" id="${numPergunta}">
             <div class="pergunta-inner-box">
                 <div class="titulo-pergunta">
                     <p>${question.title}</p>
@@ -109,6 +111,7 @@ function renderizarQuizz(resposta) {
             </div>
         </div>
         `;
+        numPergunta++;
     });
 }
 
@@ -131,4 +134,12 @@ function showAnswer(answer) {
             acertos++;
         }
     }
+
+    setTimeout(focarNaProximaPergunta, 2000);
+}
+
+function focarNaProximaPergunta() {
+    const pergunta = document.getElementById(`${idPergunta + 1}`);
+    pergunta.scrollIntoView();
+    idPergunta++;
 }
