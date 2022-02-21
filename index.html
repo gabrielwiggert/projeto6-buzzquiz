@@ -18,74 +18,26 @@
     </header>
 
 <!-- lista de quizzes (tela 1) -->
-        <section class="lista-quizzes hidden">    
+        <section class="lista-quizzes">    
             <div class="container-criar">           
                 <div class="criar-quizz">
                     <p>Voçê não criou nenhum <br> quizz ainda :&#40</p>
-                    <input type="text" placeholder="Cria Quizz" class="placeholdercriar">
+     
+               <button type="text" class="placeholdercriar" onclick="comecarCriacao()">Cria Quizz</button>
                 </div>
             </div>
-
-            <div class="titulo-todos">
-                <p>Todos os Quizzes</p>
+            <div class="titulos">
+                <p>Todos os quizzes</p>
             </div>
-
-            <div class="todos-quizzes">
-                <div class="dupla">
-                    <figure>
-                        <img src="/images/Saiba-sobre-o-Drift-no-Japão.jpg" alt="">
-                        <p></p>
-                    </figure>
-                    <figure>
-                        <img src="/images/Saiba-sobre-o-Drift-no-Japão.jpg" alt="">
-                        <p></p>
-                    </figure>
-                </div>
-
-                <div class="dupla">
-                    <figure>
-                        <img src="/images/Saiba-sobre-o-Drift-no-Japão.jpg" alt="">
-                        <p></p>
-                    </figure>
-                    <figure>
-                        <img src="/images/Saiba-sobre-o-Drift-no-Japão.jpg" alt="">
-                        <p></p>
-                    </figure>
-                </div>
-
-                <div class="dupla" >
-                    <figure>
-                        <img src="/images/Saiba-sobre-o-Drift-no-Japão.jpg" alt="">
-                        <p></p>
-                    </figure>
-                    <figure>
-                        <img src="/images/Saiba-sobre-o-Drift-no-Japão.jpg" alt="">
-                        <p></p>
-                    </figure>
-                </div>
-            </div>
-
+            
         </section>  
         
 <!-- criação do quizz-->
 
-        <section class="criacao-de-quizzes">
-            <div class="titulos">
-<!-- Criação de quizz (tela 3) -->
+
 
         <section class="criacao-de-quizzes hidden">
-            <div class="titulo-criação">
-                <p>Comece pelo começo</p>
-            </div>
-            <div class="caixa-input">
-                <input type="text" placeholder="Título do seu quizz" class="titulo-criacao placeholdercriacao"/> 
-                <input type="text" placeholder="URL da imagem do seu quizz" class="url-image placeholdercriacao"/>
-                <input type="text" placeholder="Quantidade de perguntas do quizz" class="quantidade-perguntas placeholdercriacao"/>
-                <input type="text" placeholder="Quantidade de níveis do quizz" class="quantidade-niveis placeholdercriacao"/>
-            </div>
-            <div class="botao-prosseguir" >
-                <button onclick="abrirPerguntas()">Prosseguir para criar perguntas</button>
-            </div>
+         
         </section>
 
 <!-- perguntas do quizz -->
@@ -124,9 +76,7 @@
         <!-- <section class="succeso ">
         </section> -->
         
-        <section class="sucesso-quizz hidden">
-          
-        </section>
+        <section class="sucesso-quizz hidden"></section>
 
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -134,83 +84,13 @@
         <script src="/scripts/script-tela3.2.js"></script>
         <script src="/scripts/script-tela3.3.js"></script>
         <script src="/scripts/script-tela3.4.js"></script>
+        <script src="script-tela1.js"></script>
 
 <!-- Execucao de um quizz (tela 2) -->
 
-        <section class="execucao-quizz">
+        <section class="execucao-quizz"></section>
 
-            <!-- 
-            <div class="titulo">
-                <p>O quão Potterhead é você?</p>
-                <img src="/images/Rectangle 34.png">
-                <div class="mask"></div>
-            </div>
-
-            <div class="pergunta">
-                <div class="pergunta-inner-box">
-                    <div class="titulo-pergunta">
-                        <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
-                    </div>
-
-                    <div class="opcoes">
-                        <div class="column1">
-                            <div class="opcao false">
-                                <img src="/images/image 3.png">
-                                <h6>Gatineo</h6>
-                            </div>
-
-                            <div class="space"></div>
-
-                            <div class="opcao false">
-                                <img src="/images/image 7.png">
-                                <h6>Sapo gordo</h6>
-                            </div>
-                        </div>
-
-                        <div class="column2">
-                            <div class="opcao false">
-                                <img src="/images/image 4.png">
-                                <h6>Ratata</h6>
-                            </div>
-
-                            <div class="space"></div>
-
-                            <div class="opcao true">
-                                <img src="/images/image 8.png">
-                                <h6>Mustela putorius (o Furão)</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pergunta">
-                <div class="pergunta-inner-box">
-                    <div class="titulo-pergunta">
-                        <p>88% de acerto: Você é praticamente um aluno de Hogwarts!</p>
-                    </div>
-
-                    <div class="opcoes">
-                        <div class="column1">
-                            <div class="opcao">
-                                <img src="/images/image 10.png">
-                                <h6>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o  loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="botoes">
-                <button onclick="reiniciarQuizz()">Reiniciar Quizz</button>
-                <div class="space"></div>
-                <button onclick="voltarParaHome()">Voltar para home</button>
-            </div>
-            
-            Execucao de um quizz (tela 2) - DEMO ESTÁTICA -->
-        </section>
-
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="script.js"></script>
+      
+      
 </body>
 </html>

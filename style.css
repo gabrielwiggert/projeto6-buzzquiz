@@ -36,7 +36,7 @@ header > p {
 .lista-quizzes {
     width: 100%;
     height: auto;  
-    background-color: rgb(61, 204, 204);
+    background-color: #FAFAFA;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,7 +45,7 @@ header > p {
 }
 .criar-quizz {
     
-    width: 340px;
+    width: 1051px;
     height: 181px;
     margin-top: 100px;
     background: #ffffff;
@@ -58,13 +58,23 @@ header > p {
     align-items: center;
 }
 
-.criar-quizz > input {
+.criar-quizz > button {
     width: 151px;
     height: 40px;  
     background: #ffffff;
     border: 1px dashed #EC362D;
     box-sizing: border-box;
     border-radius: 50px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 21px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #EC362D;
 }
 
 .placeholdercriar::placeholder{
@@ -108,7 +118,7 @@ header > p {
     
 .dupla{
     display: flex;
-    flex-direction: column;    
+    flex-direction: row;    
     flex-wrap:wrap; 
        
 }
