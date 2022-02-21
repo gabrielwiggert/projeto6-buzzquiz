@@ -45,6 +45,7 @@ function abrirPerguntas(){
 let acertos = 0;
 let numPergunta = 0;
 let idPergunta = 0;
+let quizzGlobal;
 
 function getQuizz(ID_DO_QUIZZ) {
     const resposta = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/" + ID_DO_QUIZZ);
@@ -56,7 +57,8 @@ function comparador() {
 }
 
 function renderizarQuizz(resposta) {
-    const quizz = resposta.data;
+    let quizz = resposta.data;
+    quizzGlobal = resposta.data;
     var div = document.querySelector(".execucao-quizz");
     div.innerHTML = "";
 
@@ -81,54 +83,68 @@ function renderizarQuizz(resposta) {
 
                 <div class="opcoes">
                     <div class="column1">
-                        <div class="opcao" onclick="showAnswer(this)" id="answer1">
+                        <div class="opcao" onclick="showAnswer(this)" id="answer1${numPergunta}">
                             <img src="${question.answers[0].image}">
                             <h6>${question.answers[0].text}</h6>
                         </div>
 
                         <div class="space"></div>
 
-                        <div class="opcao" onclick="showAnswer(this)" id="answer2">
+                        <div class="opcao" onclick="showAnswer(this)" id="answer2${numPergunta}">
                             <img src="${question.answers[1].image}">
                             <h6>${question.answers[1].text}</h6>
                         </div>
                     </div>
+        `;
 
-                    <div class="column2">
-                        <div class="opcao" onclick="showAnswer(this)" id="answer3">
-                            <img src="${question.answers[2].image}">
-                            <h6>${question.answers[2].text}</h6>
+        if (question.answers.length > 2) {
+        div.innerHTML+= `
+            <div class="column2">
+                            <div class="opcao" onclick="showAnswer(this)" id="answer3${numPergunta}">
+                                <img src="${question.answers[2].image}">
+                                <h6>${question.answers[2].text}</h6>
+                            </div>
+
+                            <div class="space"></div>
+
+                            <div class="opcao" onclick="showAnswer(this)" id="answer4${numPergunta}">
+                                <img src="${question.answers[3].image}">
+                                <h6>${question.answers[3].text}</h6>
+                            </div>
                         </div>
-
-                        <div class="space"></div>
-
-                        <div class="opcao" onclick="showAnswer(this)" id="answer4">
-                            <img src="${question.answers[3].image}">
-                            <h6>${question.answers[3].text}</h6>
+                        </div>
                         </div>
                     </div>
-                </div>
+            `;
+        }
+
+        else {
+            div.innerHTML+= `
             </div>
-        </div>
-        `;
+            </div>
+            </div>
+            `
+        }
         numPergunta++;
     });
 }
 
 function showAnswer(answer) {
 
-    const answer1 = document.getElementById("answer1")
+    const answer1 = document.getElementById(`answer1${idPergunta}`);
     if (!answer1.classList.contains("true") && !answer1.classList.contains("false")) {
-        answer1.classList.add(`${question.answers[0].isCorrectAnswer}`);
+        answer1.classList.add(`${quizzGlobal.questions[idPergunta].answers[0].isCorrectAnswer}`);
 
-        const answer2 = document.getElementById("answer2")
-        answer2.classList.add(`${question.answers[1].isCorrectAnswer}`);
+        const answer2 = document.getElementById(`answer2${idPergunta}`);
+        answer2.classList.add(`${quizzGlobal.questions[idPergunta].answers[1].isCorrectAnswer}`);
+        
+        if (quizzGlobal.questions[idPergunta].answers.length > 2) {
+            const answer3 = document.getElementById(`answer3${idPergunta}`);
+            answer3.classList.add(`${quizzGlobal.questions[idPergunta].answers[2].isCorrectAnswer}`);
 
-        const answer3 = document.getElementById("answer3")
-        answer3.classList.add(`${question.answers[2].isCorrectAnswer}`);
-
-        const answer4 = document.getElementById("answer4")
-        answer4.classList.add(`${question.answers[3].isCorrectAnswer}`);
+            const answer4 = document.getElementById(`answer4${idPergunta}`);
+            answer4.classList.add(`${quizzGlobal.questions[idPergunta].answers[3].isCorrectAnswer}`);
+        }
 
         if (answer.classList.contains("true")) {
             acertos++;
@@ -139,7 +155,77 @@ function showAnswer(answer) {
 }
 
 function focarNaProximaPergunta() {
-    const pergunta = document.getElementById(`${idPergunta + 1}`);
-    pergunta.scrollIntoView();
-    idPergunta++;
+        idPergunta++;
+        const pergunta = document.getElementById(`${idPergunta}`);
+        if (idPergunta == numPergunta) {
+            finalizarQuizz();
+        }
+        else {
+            pergunta.scrollIntoView();
+        }
 }
+
+function finalizarQuizz() {
+    var div = document.querySelector(".execucao-quizz");
+
+    let taxaAcerto = ((acertos - 1) / quizzGlobal.questions.length) * 100;
+    taxaAcerto = Math.round(taxaAcerto);
+
+    let flag = 0;
+    let i = 0;
+    let seletor;
+
+    while (flag == 0) {
+        seletor = quizzGlobal.levels[i]; //REVER LÓGICA/COUNTING AQUI
+        if (taxaAcerto <= quizzGlobal.levels[i].minValue) {
+            flag = 1;
+        }
+        i++;
+    }
+
+    div.innerHTML += `
+        <div class="pergunta" id="resultado">
+        <div class="pergunta-inner-box">
+            <div class="titulo-pergunta">
+                <p>${seletor.title}</p>
+            </div>
+
+            <div class="opcoes">
+                <div class="column1">
+                    <div class="opcao">
+                        <img src="${seletor.image}">
+                        <h6>${seletor.text}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    const pergunta = document.getElementById('resultado');
+    pergunta.scrollIntoView();
+
+    div.innerHTML += `
+    <div class="botoes">
+                <button onclick="reiniciarQuizz()" id="reiniciar">Reiniciar Quizz</button>
+                <div class="space"></div>
+                <button onclick="voltarParaHome()" id="home">Voltar para home</button>
+            </div>
+    `;
+}
+
+function reiniciarQuizz() {
+    window.location.reload();
+}
+
+function voltarParaHome() {
+    let execucao = document.querySelector(".execucao-quizz");
+    execucao.classList.add("hidden");
+
+    let home = document.querySelector(".lista-quizzes");
+    home.classList.remove("hidden");
+}
+
+//getQuizz(6936);
+//getQuizz(6989);
+getQuizz(7013);

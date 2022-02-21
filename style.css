@@ -196,6 +196,22 @@ figure > img{
 
 /* Execução de quizz */
 
+.pergunta img {
+    width: 164px;
+    height: 113px;
+}
+
+.opcao img {
+    width: 164px;
+    height: 113px;
+}
+
+
+.titulo img {
+    width: 375px;
+    height: 142px;
+}
+
 .execucao-quizz {
     background-color: #E5E5E5;
     margin-bottom: 100px;
@@ -212,7 +228,7 @@ figure > img{
     background-color: #000000;
     opacity: 0.6;
     height: 142px;
-    width: 100vw;
+    width: 375px;
 }
 
 .titulo p {
@@ -274,8 +290,13 @@ figure > img{
     padding-top: 6px;
 }
 
+.opcao h6 {
+    max-width: 164px;
+}
+
 .space {
     height: 20px;
+    background-color: #FAFAFA;
 }
 
 .opcao {
@@ -292,4 +313,33 @@ figure > img{
 
 .false {
     opacity: 0.5;
+}
+
+.pergunta {
+    width: 375px;
+}
+
+#resultado img {
+    height: 255px;
+    width: 340px;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    background-color: #FAFAFA;
+}
+
+#reiniciar {
+    background-color: #EC362D;
+    border: none;
+    border-radius: 30px;
+    color: white;
+}
+
+#home {
+    border: none;
+    color: grey;
+    background-color: #FAFAFA;
 }
