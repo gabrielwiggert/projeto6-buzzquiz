@@ -75,7 +75,7 @@ function renderizarQuizz(resposta) {
         question.answers.sort(comparador); // Após esta linha, a question.answers estará embaralhada
 
         div.innerHTML += `
-            <div class="pergunta" id="${numPergunta}">
+            <div class="pergunta" id="${numPergunta}" data-identifier="question">
             <div class="pergunta-inner-box">
                 <div class="titulo-pergunta">
                     <p>${question.title}</p>
@@ -83,14 +83,14 @@ function renderizarQuizz(resposta) {
 
                 <div class="opcoes">
                     <div class="column1">
-                        <div class="opcao" onclick="showAnswer(this)" id="answer1${numPergunta}">
+                        <div class="opcao" onclick="showAnswer(this)" id="answer1${numPergunta}" data-identifier="answer">
                             <img src="${question.answers[0].image}">
                             <h6>${question.answers[0].text}</h6>
                         </div>
 
                         <div class="space"></div>
 
-                        <div class="opcao" onclick="showAnswer(this)" id="answer2${numPergunta}">
+                        <div class="opcao" onclick="showAnswer(this)" id="answer2${numPergunta}" data-identifier="answer">
                             <img src="${question.answers[1].image}">
                             <h6>${question.answers[1].text}</h6>
                         </div>
@@ -100,14 +100,14 @@ function renderizarQuizz(resposta) {
         if (question.answers.length > 2) {
         div.innerHTML+= `
             <div class="column2">
-                            <div class="opcao" onclick="showAnswer(this)" id="answer3${numPergunta}">
+                            <div class="opcao" onclick="showAnswer(this)" id="answer3${numPergunta}" data-identifier="answer">
                                 <img src="${question.answers[2].image}">
                                 <h6>${question.answers[2].text}</h6>
                             </div>
 
                             <div class="space"></div>
 
-                            <div class="opcao" onclick="showAnswer(this)" id="answer4${numPergunta}">
+                            <div class="opcao" onclick="showAnswer(this)" id="answer4${numPergunta}" data-identifier="answer">
                                 <img src="${question.answers[3].image}">
                                 <h6>${question.answers[3].text}</h6>
                             </div>
@@ -184,7 +184,7 @@ function finalizarQuizz() {
     }
 
     div.innerHTML += `
-        <div class="pergunta" id="resultado">
+        <div class="pergunta" id="resultado" data-identifier="quizz-result">
         <div class="pergunta-inner-box">
             <div class="titulo-pergunta">
                 <p>${seletor.title}</p>
@@ -209,7 +209,7 @@ function finalizarQuizz() {
     <div class="botoes">
                 <button onclick="reiniciarQuizz()" id="reiniciar">Reiniciar Quizz</button>
                 <div class="space"></div>
-                <button onclick="voltarParaHome()" id="home">Voltar para home</button>
+                <button onclick="voltarParaHome()" id="home">Voltar pra home</button>
             </div>
     `;
 }
@@ -228,4 +228,4 @@ function voltarParaHome() {
 
 //getQuizz(6936);
 //getQuizz(6989);
-getQuizz(7013);
+//getQuizz(7013);
